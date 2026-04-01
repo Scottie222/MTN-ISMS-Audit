@@ -1,0 +1,17 @@
+﻿# Python virtual environment
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+
+# Logs only
+reports/*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# VS Code workspace settings
+.vscode/settings.json
+.vscode/launch.json

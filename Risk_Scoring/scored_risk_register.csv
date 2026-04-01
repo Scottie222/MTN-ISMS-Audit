@@ -1,0 +1,16 @@
+risk_id,domain,control_ref,asset,threat,vulnerability,likelihood,impact,risk_score,risk_level,status,owner,target_date
+R001,Access Control,A.9.1.1,User Accounts,Unauthorised Access,Weak Password Policy,4,5,20,Critical,Open,IT Security,2025-06-30
+R002,Access Control,A.9.4.2,VPN Gateway,Brute Force Attack,No MFA on Remote Access,5,5,25,Critical,Open,Network Team,2025-05-31
+R003,Cryptography,A.10.1.1,Customer Data,Data Interception,Unencrypted Data in Transit,3,5,15,High,In Progress,Data Team,2025-07-31
+R004,Physical Security,A.11.1.1,Data Centre,Physical Intrusion,Inadequate CCTV Coverage,2,4,8,Medium,Open,Facilities,2025-08-31
+R005,Operations,A.12.6.1,Servers,Exploit Attack,Unpatched Systems,4,4,16,High,Open,SysAdmin,2025-06-15
+R006,Communications,A.13.1.1,Network,DDoS Attack,No Rate Limiting,3,4,12,High,In Progress,Network Team,2025-07-15
+R007,Supplier Relations,A.15.1.1,Third Party APIs,Supply Chain Attack,Unvetted Vendor,2,5,10,Medium,Open,Procurement,2025-09-30
+R008,Incident Mgmt,A.16.1.1,SIEM System,Undetected Breach,No 24/7 SOC Coverage,3,5,15,High,Open,SOC Lead,2025-06-30
+R009,Business Continuity,A.17.1.1,Core Systems,Service Outage,No DR Testing,2,5,10,Medium,Open,IT Manager,2025-10-31
+R010,Compliance,A.18.1.1,PII Data,Regulatory Breach,Incomplete POPIA Controls,3,5,15,High,In Progress,Legal,2025-05-31
+R011,HR Security,A.7.2.2,Employee Accounts,Insider Threat,No Security Awareness Training,3,4,12,High,Open,HR,2025-07-31
+R012,Asset Management,A.8.1.1,Mobile Devices,Data Theft,No MDM Policy,3,3,9,Medium,Open,IT Security,2025-08-31
+R013,Access Control,A.9.2.1,Privileged Accounts,Privilege Escalation,No PAM Solution,4,5,20,Critical,Open,IAM Team,2025-05-31
+R014,Operations,A.12.3.1,Backup Systems,Data Loss,Untested Backups,2,5,10,Medium,Open,SysAdmin,2025-06-30
+R015,Cryptography,A.10.1.2,Encryption Keys,Key Compromise,No Key Rotation Policy,3,5,15,High,Open,Security Arch,2025-07-31

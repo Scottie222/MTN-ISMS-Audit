@@ -1,0 +1,9 @@
+KPI,Current,Target,Status
+Patch Compliance,80,90,Below Target
+MFA Adoption,72,95,Below Target
+Incident MTTR (hrs),40,24,Below Target
+Phishing Click Rate,9,5,Below Target
+Critical Vulns Open,23,10,Below Target
+Training Completion,83,95,Below Target
+Access Review Complete,72,90,Below Target
+Backup Success Rate,94,99,Below Target

@@ -1,0 +1,11 @@
+﻿finding_id,severity,category,title,description,affected_control,recommendation,status,due_date
+F001,Critical,Access Control,MFA Not Enforced,Multi-Factor Authentication is not enforced on VPN and privileged accounts,A.9.4.2,Implement MFA across all remote access and admin accounts within 30 days,Open,2025-05-31
+F002,Critical,Access Control,No PAM Solution,No Privileged Access Management solution deployed for admin accounts,A.9.2.3,Deploy CyberArk or equivalent PAM solution and enforce least privilege,Open,2025-05-31
+F003,High,Operations,Patching Delays,Critical patches taking 45+ days to apply across server fleet,A.12.6.1,Implement automated patching with 14-day SLA for critical patches,In Progress,2025-06-15
+F004,High,Supplier Relations,No Third-Party Risk Process,No formal vendor assessment or TPRA process for critical suppliers,A.15.1.2,Establish TPRA programme and conduct assessments on all Tier-1 vendors,Open,2025-09-30
+F005,High,Incident Mgmt,IRP Not Tested,Incident Response Plan has not been tested via tabletop or simulation,A.16.1.1,Conduct quarterly tabletop exercises and annual full DR simulation,Open,2025-06-30
+F006,High,Compliance,POPIA Gaps,Data subject rights requests process incomplete with no formal deletion workflow,A.18.1.1,Implement DSAR process and appoint Information Officer under POPIA,In Progress,2025-05-31
+F007,High,Business Continuity,DR Plan Untested,Disaster Recovery plan not tested in over 18 months,A.17.1.2,Schedule and execute full DR failover test and document gaps,Open,2025-10-31
+F008,Medium,Cryptography,Weak Cipher Usage,Legacy systems running TLS 1.0/1.1 and outdated cipher suites,A.10.1.1,Upgrade all systems to TLS 1.3 and disable deprecated protocols,In Progress,2025-07-31
+F009,Medium,Physical Security,CCTV Coverage Gaps,Three blind spots identified in data centre perimeter CCTV coverage,A.11.1.1,Install additional cameras to eliminate blind spots and test coverage monthly,Open,2025-08-31
+F010,Medium,HR Security,Annual-Only Security Training,Security awareness training conducted annually which is insufficient,A.7.2.2,Implement monthly phishing simulations and quarterly training modules,Open,2025-07-31

@@ -1,0 +1,16 @@
+id,control_ref,area,question,method,finding,status
+CL001,A.5.1,IS Policy,Is there an approved IS policy?,Doc Review,,Pending
+CL002,A.5.2,IS Roles,Are IS roles and responsibilities defined?,Interview,,Pending
+CL003,A.5.9,Asset Inventory,Is an accurate asset inventory maintained?,Doc Review,,Pending
+CL004,A.5.15,Access Control Policy,Is access control policy documented?,Testing,,Pending
+CL005,A.6.3,Security Awareness,Is security awareness training conducted?,Interview,,Pending
+CL006,A.7.1,Physical Perimeters,Are physical perimeters defined and enforced?,Observation,,Pending
+CL007,A.8.1,Endpoint Security,Are endpoint controls deployed on all devices?,Testing,,Pending
+CL008,A.8.5,Secure Authentication,Is MFA enforced for privileged access?,Testing,,Pending
+CL009,A.8.8,Vulnerability Mgmt,Is there a vulnerability management process?,Doc Review,,Pending
+CL010,A.8.15,Logging & Monitoring,Are security logs collected and reviewed?,Testing,,Pending
+CL011,A.8.24,Cryptography,Are cryptographic standards enforced?,Doc Review,,Pending
+CL012,A.5.29,Business Continuity,Is a tested BCP/DRP in place?,Doc Review,,Pending
+CL013,A.5.19,Supplier Security,Are supplier requirements contractually defined?,Doc Review,,Pending
+CL014,A.5.25,Incident Management,Is there a tested incident response process?,Interview,,Pending
+CL015,A.5.12,Data Classification,Is data classified per sensitivity?,Doc Review,,Pending

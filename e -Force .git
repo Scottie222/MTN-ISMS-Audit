@@ -1,0 +1,35 @@
+[33m7c3eb64[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m Fix seaborn FutureWarning in dashboard_recovered.py
+[33m649a061[m Fix trailing newlines and missing final newline
+[33m3e0b985[m Fix trailing whitespace, remove duplicate folder, fix risk_scoring import
+[33m7661fe0[m Fix missing final newlines and resolve duplicate risk_scoring code
+[33m851c2b1[m Remove misplaced duplicate files
+[33ma3b9b58[m Move notebook_utils.py to correct directory
+[33m734d16a[m Fix pylint errors across all modules
+[33m9138925[m Update pylint.yml
+[33mf27d440[m Update pylint.yml
+[33m9d2df3f[m Update pylint.yml
+[33m3826c8c[m Fix remaining pylint errors
+[33m55eb12f[m Fix pylint errors
+[33m74f8d93[m Add scope and methodology content
+[33m2d5580e[m Add scope and methodology content
+[33mb53837d[m Fix trailing newlines
+[33m6affa7c[m Remove trailing whitespace
+[33mc50ca10[m Fix remaining pylint errors
+[33m611e044[m Final cleanup for pylint
+[33mb059503[m Fix pylint errors and clean scripts
+[33m311f953[m Update python-lint.yml
+[33m4c0f079[m Update python-lint.yml
+[33ma1c509d[m Fix pylint warnings and clean project
+[33ma51139e[m Fix pylint warnings in control assessment
+[33m60a60a5[m Add GitHub Actions workflow for PyLint
+[33m0651a3c[m Created Executive Dashboard combining Risk Heatmap and Continuous Monitoring with live updates
+[33m3629b1e[m Added Continuous Monitoring Dashboard with incident trends
+[33mef8d10e[m Create pylint.yml
+[33m54e5305[m Delete .github/workflows directory
+[33m772eca2[m Update pylint.yml
+[33m6822d52[m Update pylint.yml
+[33m33b500f[m Create pylint.yml
+[33m3960fcb[m Create python-publish.yml
+[33m8c2577f[m Added risk heatmap dashboard
+[33mba21887[m Update README.md
+[33mfd5ff95[m Initial project structure

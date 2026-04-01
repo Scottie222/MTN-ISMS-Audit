@@ -1,0 +1,11 @@
+control_id,domain,control_name,control_ref,implemented,effectiveness,gap_description,compliance_score
+C014,Access Control,Privileged Access Management,A.9.2.3,No,Not Implemented,No PAM tooling deployed,15
+C002,Access Control,Secure Log-On Procedures,A.9.4.2,No,Not Implemented,No SSO or centralised auth,20
+C008,Supplier Relations,Information Security in Supplier Agreements,A.15.1.2,No,Not Implemented,No formal TPRA process,25
+C015,Cryptography,Key Management,A.10.1.2,Yes,Partial,No formal key rotation schedule,45
+C010,Business Continuity,Planning Information Security Continuity,A.17.1.2,Yes,Partial,DR plan untested in 18 months,50
+C003,Cryptography,Policy on Use of Cryptographic Controls,A.10.1.1,Yes,Partial,Some legacy systems use weak ciphers,55
+C012,HR Security,Security Awareness Training,A.7.2.2,Yes,Partial,Annual training only,55
+C001,Access Control,Information Access Restriction,A.9.4.1,Yes,Partial,MFA not enforced on all systems,60
+C009,Incident Mgmt,Responsibilities and Procedures,A.16.1.1,Yes,Partial,IRP exists but not regularly tested,60
+C006,Operations,Management of Technical Vulnerabilities,A.12.6.1,Yes,Partial,Patching delayed on some servers,65
