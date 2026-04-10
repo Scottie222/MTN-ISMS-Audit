@@ -6,7 +6,7 @@
 ![GDPR](https://img.shields.io/badge/Compliance-GDPR-green?style=flat-square)
 ![Status](https://img.shields.io/badge/Status-Active-brightgreen?style=flat-square)
 
-> A fully automated **ISO/IEC 27001:2022 Internal Audit and Continuous Monitoring** simulation built for **MTN Group Limited** — Africa's largest telecommunications company. This tool covers end-to-end information security governance: risk assessment, control effectiveness evaluation, audit findings management, POPIA/GDPR compliance tracking, and a live ISMS KPI dashboard — all generated from Python with zero manual effort.
+A fully automated ISO/IEC 27001:2022 internal audit and continuous monitoring simulation built for MTN Group Limited — Africa's largest telecommunications company. Covers end-to-end information security governance: risk assessment, control effectiveness evaluation, audit findings management, POPIA/GDPR compliance tracking, and a live ISMS KPI dashboard — all generated from Python with zero manual effort.
 
 ---
 
@@ -19,9 +19,7 @@
 - [Project Structure](#project-structure)
 - [Quick Start](#quick-start)
 - [Running the Audit](#running-the-audit)
-- [Modules Explained](#modules-explained)
 - [Generated Outputs](#generated-outputs)
-- [Data Files](#data-files)
 - [Bash Scripts Reference](#bash-scripts-reference)
 - [CI/CD Pipeline](#cicd-pipeline)
 - [Audit Scope and Standards](#audit-scope-and-standards)
@@ -35,55 +33,55 @@
 
 ## Why This Project Exists
 
-MTN Group operates across 19 African and Middle Eastern markets, serving over 300 million subscribers and processing billions of financial transactions through its MoMo fintech platform. The sheer scale of data handled — personal, financial, and operational — makes information security governance not just a regulatory requirement but a business-critical function.
+MTN Group operates across 19 African and Middle Eastern markets, serving over 300 million subscribers and processing billions of financial transactions through its MoMo fintech platform. The scale of data handled — personal, financial, and operational — makes information security governance not just a regulatory requirement but a business-critical function.
 
-This project simulates what a real ISO 27001 internal audit engagement looks like for an organisation of MTN's complexity. It demonstrates:
+This project simulates what a real ISO 27001 internal audit engagement looks like for an organisation of MTN's complexity. It demonstrates how to systematically assess information security controls against an international standard, quantify and visualise risk using a structured scoring methodology, track compliance trends over time using continuous monitoring KPIs, and produce professional audit deliverables that a CISO or audit committee would actually use.
 
-- How to systematically assess information security controls against an international standard
-- How to quantify and visualise risk using a structured scoring methodology
-- How to track compliance trends over time using continuous monitoring KPIs
-- How to produce professional audit deliverables — findings reports, remediation plans, and dashboards — that a CISO or audit committee would actually use
-
-The tool is built entirely in Python with no external audit software, making it reproducible, version-controlled, and extendable — skills directly applicable to GRC, information security, and audit roles.
+The tool is built entirely in Python with no external audit software, making it reproducible, version-controlled, and extendable.
 
 ---
 
 ## Company Profile
 
 | Field | Details |
-|-------|---------|
-| **Organisation** | MTN Group Limited |
-| **Founded** | 1994 (as M-Cell) |
-| **Headquarters** | Johannesburg, South Africa |
-| **CEO** | Ralph Mupita |
-| **Subscribers** | 300+ million across 19 markets |
-| **Services** | Telecommunications, Fintech (MoMo), Cloud, Enterprise ICT |
-| **Stock Exchange** | JSE: MTN |
-| **Revenue** | ~ZAR 185 billion (FY2023) |
-| **Employees** | 17,000+ |
-| **Key Regulations** | POPIA (SA), GDPR (EU), NCC (Nigeria), ICASA (SA) |
+|---|---|
+| Organisation | MTN Group Limited |
+| Founded | 1994 (as M-Cell) |
+| Headquarters | Johannesburg, South Africa |
+| CEO | Ralph Mupita |
+| Subscribers | 300+ million across 19 markets |
+| Services | Telecommunications, Fintech (MoMo), Cloud, Enterprise ICT |
+| Stock Exchange | JSE: MTN |
+| Revenue | ~ZAR 185 billion (FY2023) |
+| Employees | 17,000+ |
+| Key Regulations | POPIA (SA), GDPR (EU), NCC (Nigeria), ICASA (SA) |
 
-MTN's data environment includes subscriber PII across 19 jurisdictions, mobile money transaction data for 60+ million MoMo users, enterprise cloud infrastructure, and critical national telecommunications infrastructure — all of which fall within the scope of ISO 27001 certification.
+MTN's data environment includes subscriber PII across 19 jurisdictions, mobile money transaction data for 60+ million MoMo users, enterprise cloud infrastructure, and critical national telecommunications infrastructure — all within scope of ISO 27001 certification.
 
 ---
 
 ## What the Tool Does
 
-The audit tool automates five core ISMS functions:
+Running one command generates a complete audit suite:
+
+```bash
+python run_audit.py
+```
 
 | Function | What It Produces |
-|----------|-----------------|
-| **Risk Assessment** | Scores 15 risks using a 5×5 matrix, generates heatmap and domain analysis |
-| **Control Assessment** | Evaluates 15 ISO 27001 Annex A controls, produces radar and gap analysis |
-| **Findings Management** | Classifies 10 audit findings by severity, generates remediation plan |
-| **Continuous Monitoring** | Tracks 8 security KPIs over 10 months, produces trend dashboards |
-| **Audit Planning** | Generates full audit plan document, schedule, and 15-item checklist |
+|---|---|
+| Risk Assessment | Scores 15 risks using a 5×5 matrix, generates heatmap and domain analysis |
+| Control Assessment | Evaluates 15 ISO 27001 Annex A controls, produces radar and gap analysis |
+| Findings Management | Classifies 10 audit findings by severity, generates remediation plan |
+| Continuous Monitoring | Tracks 8 security KPIs over 10 months, produces trend dashboards |
+| Audit Planning | Generates full audit plan document, schedule, and 15-item checklist |
 
-Everything runs from a single command and produces professional-grade outputs including charts, CSV reports, markdown documents, and a self-contained HTML audit report.
+All five modules produce charts, CSV reports, markdown documents, and a self-contained HTML audit report.
 
 ---
 
 ## How It Works
+
 ```
 ┌─────────────────────────────────────────────────────────┐
 │                    INPUT DATA (CSV)                      │
@@ -110,251 +108,127 @@ Everything runs from a single command and produces professional-grade outputs in
 └─────────────────────────────────────────────────────────┘
 ```
 
-Each module is a standalone Python script that reads from `data/`, processes the data, and writes outputs to its own folder. The master runner `run_audit.py` calls all five modules in sequence and prints a summary. No database, no web server, no external dependencies beyond pandas and matplotlib.
+Each module is a standalone Python script that reads from `data/`, processes the data, and writes outputs to its own folder. No database, no web server, no external dependencies beyond pandas and matplotlib.
 
 ---
 
 ## Project Structure
+
 ```
 MTN-ISMS-Audit/
-│
 ├── .github/
 │   └── workflows/
-│       └── isms_audit.yml          # GitHub Actions CI/CD — runs on push + weekly
-│
+│       └── isms_audit.yml
 ├── Audit_Planning/
-│   ├── audit_planning.py           # Generates audit plan and checklist
-│   ├── audit_plan.md               # OUTPUT: Full ISO 27001 audit plan document
-│   └── audit_checklist.csv         # OUTPUT: 15-item control audit checklist
-│
+│   ├── audit_planning.py
+│   ├── audit_plan.md
+│   └── audit_checklist.csv
 ├── Continuous_Monitoring/
-│   ├── continuous_monitoring.py    # KPI trend analysis and dashboards
-│   ├── kpi_trends.png              # OUTPUT: 6-panel KPI trend dashboard
-│   ├── vulnerability_trend.png     # OUTPUT: Critical vulnerability count over time
-│   └── kpi_summary.csv             # OUTPUT: Latest KPI values vs targets
-│
+│   ├── continuous_monitoring.py
+│   ├── kpi_trends.png
+│   ├── vulnerability_trend.png
+│   └── kpi_summary.csv
 ├── Control_Assessment/
-│   ├── control_assessment.py       # ISO 27001 Annex A control evaluator
-│   ├── compliance_radar.png        # OUTPUT: Spider chart — compliance by domain
-│   ├── implementation_status.png   # OUTPUT: Implemented/Partial/Not Implemented
-│   ├── compliance_scores.png       # OUTPUT: Per-control compliance bar chart
-│   └── gap_analysis_report.csv     # OUTPUT: All controls below 70% target
-│
+│   ├── control_assessment.py
+│   ├── compliance_radar.png
+│   ├── implementation_status.png
+│   ├── compliance_scores.png
+│   └── gap_analysis_report.csv
 ├── Findings_Recommendations/
-│   ├── findings_analysis.py        # Audit findings processor and reporter
-│   ├── findings_by_severity.png    # OUTPUT: Critical/High/Medium/Low bar chart
-│   ├── findings_by_category.png    # OUTPUT: Findings per ISO 27001 domain
-│   ├── remediation_status.png      # OUTPUT: Open/In Progress/Closed pie chart
-│   ├── audit_findings_report.md    # OUTPUT: Full structured findings report
-│   └── remediation_plan.csv        # OUTPUT: Prioritised remediation actions
-│
+│   ├── findings_analysis.py
+│   ├── findings_by_severity.png
+│   ├── findings_by_category.png
+│   ├── remediation_status.png
+│   ├── audit_findings_report.md
+│   └── remediation_plan.csv
 ├── Risk_Scoring/
-│   ├── risk_heatmap.png            # OUTPUT: 5x5 likelihood/impact heatmap
-│   ├── risk_by_domain.png          # OUTPUT: Average risk score per domain
-│   ├── risk_distribution.png       # OUTPUT: Risk level breakdown pie chart
-│   └── scored_risk_register.csv    # OUTPUT: Full risk register with scores
-│
+│   ├── risk_heatmap.png
+│   ├── risk_by_domain.png
+│   ├── risk_distribution.png
+│   └── scored_risk_register.csv
 ├── data/
-│   ├── risk_register.csv           # 15 risks across ISO 27001 domains
-│   ├── control_assessment.csv      # 15 Annex A controls with scores
-│   ├── findings.csv                # 10 audit findings with severity ratings
-│   └── monitoring_metrics.csv      # 10 months of security KPI data
-│
+│   ├── risk_register.csv
+│   ├── control_assessment.csv
+│   ├── findings.csv
+│   └── monitoring_metrics.csv
 ├── risk_engine/
-│   └── risk_scoring.py             # Risk calculator: scores + 3 chart outputs
-│
+│   └── risk_scoring.py
 ├── reports/
-│   └── mtn_isms_audit_report.html  # OUTPUT: Self-contained HTML report
-│
+│   └── mtn_isms_audit_report.html
 ├── scripts/
-│   ├── setup_project.sh            # Creates venv, installs deps, validates structure
-│   ├── run_audit.sh                # Bash master runner with logging
-│   ├── run_audit_planning.sh       # Run audit planning module only
-│   ├── run_risk_scoring.sh         # Run risk scoring module only
-│   ├── run_control_assessment.sh   # Run control assessment module only
-│   ├── run_findings.sh             # Run findings analysis module only
-│   ├── run_monitoring.sh           # Run continuous monitoring only
-│   ├── generate_report.sh          # Compile self-contained HTML report
-│   ├── validate_data.sh            # Validate all CSV data files
-│   ├── lint_check.sh               # Run pylint on all Python modules
-│   └── clean.sh                    # Remove all generated output files
-│
-├── dashboard/                      # Reserved for future web dashboard
-├── .gitignore
-├── README.md
-├── requirements.txt                # pandas, matplotlib, numpy
-├── run_audit.py                    # Python master runner (all platforms)
-└── setup_project.sh                # One-time environment setup
+│   ├── setup_project.sh
+│   ├── run_audit.sh
+│   ├── run_audit_planning.sh
+│   ├── run_risk_scoring.sh
+│   ├── run_control_assessment.sh
+│   ├── run_findings.sh
+│   ├── run_monitoring.sh
+│   ├── generate_report.sh
+│   ├── validate_data.sh
+│   ├── lint_check.sh
+│   └── clean.sh
+├── run_audit.py
+├── requirements.txt
+└── README.md
 ```
 
 ---
 
 ## Quick Start
 
-### Prerequisites
-
-- Python 3.8 or higher — https://www.python.org/downloads
-- Git — https://git-scm.com/downloads
-
-### Windows (PowerShell)
-```powershell
-# Clone the repository
-git clone https://github.com/Scottie222/MTN-ISMS-Audit.git
-cd MTN-ISMS-Audit
-
-# Create virtual environment
-python -m venv .venv
-.venv\Scripts\Activate.ps1
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Run the full audit
-python run_audit.py
-```
-
-### Linux / macOS
 ```bash
 git clone https://github.com/Scottie222/MTN-ISMS-Audit.git
 cd MTN-ISMS-Audit
-
-python3 -m venv .venv
-source .venv/bin/activate
 pip install -r requirements.txt
-
-bash setup_project.sh
-bash run_audit.sh
+python run_audit.py
 ```
 
 ---
 
 ## Running the Audit
 
-### Run Everything at Once
-```powershell
-# Works on all platforms
-python run_audit.py
-```
-
-Expected output:
-```
-╔══════════════════════════════════════════════════════════════╗
-║          MTN GROUP — ISO 27001 ISMS AUDIT TOOL               ║
-║       Internal Audit & Continuous Monitoring System          ║
-╚══════════════════════════════════════════════════════════════╝
-
-──────────────────────────────────────────────────────────────
-  ▶  Audit Planning
-──────────────────────────────────────────────────────────────
-  Saved: Audit_Planning/audit_plan.md
-  Saved: Audit_Planning/audit_checklist.csv
-
-──────────────────────────────────────────────────────────────
-  ▶  Risk Scoring Engine
-──────────────────────────────────────────────────────────────
-  Saved: Risk_Scoring/risk_heatmap.png
-  Saved: Risk_Scoring/risk_by_domain.png
-  Saved: Risk_Scoring/risk_distribution.png
-  Saved: Risk_Scoring/scored_risk_register.csv
-
-  ✓ PASS  Audit Planning
-  ✓ PASS  Risk Scoring Engine
-  ✓ PASS  Control Assessment
-  ✓ PASS  Findings Analysis
-  ✓ PASS  Continuous Monitoring
-```
-
-### Run Individual Modules
-```powershell
-python Audit_Planning\audit_planning.py
-python risk_engine\risk_scoring.py
-python Control_Assessment\control_assessment.py
-python Findings_Recommendations\findings_analysis.py
-python Continuous_Monitoring\continuous_monitoring.py
-```
-
-### Linux/Mac Bash Scripts
 ```bash
-bash scripts/run_risk_scoring.sh
-bash scripts/run_control_assessment.sh
-bash scripts/run_findings.sh
-bash scripts/run_monitoring.sh
-bash scripts/generate_report.sh
+# Run all 5 modules
+python run_audit.py
+
+# Run individual modules
+python Audit_Planning/audit_planning.py
+python risk_engine/risk_scoring.py
+python Control_Assessment/control_assessment.py
+python Findings_Recommendations/findings_analysis.py
+python Continuous_Monitoring/continuous_monitoring.py
 ```
-
----
-
-## Modules Explained
-
-### 1. Audit Planning
-Generates a complete ISO/IEC 27001:2022 internal audit plan covering scope, objectives, schedule, methodology, and audit criteria. Also produces a 15-item control checklist mapped to Annex A references. This serves as the formal planning document an audit team would use before fieldwork begins.
-
-### 2. Risk Scoring Engine
-Reads the risk register and applies the standard `Risk Score = Likelihood × Impact` formula across 15 identified risks. Classifies each risk as Critical, High, Medium, or Low. Produces a 5×5 heatmap showing where risks cluster, a domain-level bar chart showing which ISO 27001 domains carry the highest average risk, and a pie chart showing overall risk distribution.
-
-### 3. Control Assessment
-Evaluates 15 ISO 27001 Annex A controls across 9 domains against three dimensions: whether the control is implemented (Yes/No/Partial), its effectiveness rating, and a 0–100 compliance score. Generates a radar chart showing compliance by domain, a stacked bar showing implementation status, a horizontal bar showing per-control scores, and exports all controls scoring below the 70% target threshold as a gap analysis report.
-
-### 4. Findings Analysis
-Processes 10 audit findings classified as Critical, High, or Medium severity. Generates severity and category breakdown charts, a remediation status pie chart, a structured markdown findings report with full descriptions and recommendations per finding, and a prioritised remediation plan CSV sorted by severity then due date.
-
-### 5. Continuous Monitoring
-Tracks 8 security KPIs over 10 months (July 2024 to April 2025). Produces a 6-panel dashboard showing trend lines with targets for patch compliance, MFA adoption, incident MTTR, phishing click rates, training completion, and backup success rate. A separate chart tracks open critical vulnerabilities over time. Each KPI panel shows the latest value and a directional arrow indicating whether the metric is improving or declining.
 
 ---
 
 ## Generated Outputs
 
-### Charts
-
-| File | Module | What It Shows |
-|------|--------|---------------|
-| `risk_heatmap.png` | Risk Scoring | 5×5 matrix — risk count per likelihood/impact cell |
-| `risk_by_domain.png` | Risk Scoring | Average risk score per ISO 27001 domain |
-| `risk_distribution.png` | Risk Scoring | Critical/High/Medium/Low breakdown |
-| `compliance_radar.png` | Control Assessment | Compliance % per domain on a spider chart |
-| `implementation_status.png` | Control Assessment | Implemented vs Partial vs Not Implemented |
-| `compliance_scores.png` | Control Assessment | Per-control compliance percentage |
-| `findings_by_severity.png` | Findings | Count of findings per severity level |
-| `findings_by_category.png` | Findings | Count of findings per ISO 27001 category |
-| `remediation_status.png` | Findings | Open vs In Progress vs Closed |
-| `kpi_trends.png` | Monitoring | 6-panel KPI trend dashboard over 10 months |
-| `vulnerability_trend.png` | Monitoring | Critical vulnerability open count over time |
-
-### Documents and Reports
-
-| File | Description |
-|------|-------------|
-| `audit_plan.md` | Full ISO 27001 audit plan with scope, schedule, methodology |
-| `audit_checklist.csv` | 15-item audit checklist mapped to Annex A |
-| `audit_findings_report.md` | Structured findings report — description + recommendation per finding |
-| `remediation_plan.csv` | Prioritised list of remediation actions with owners and due dates |
-| `gap_analysis_report.csv` | All controls scoring below 70% compliance threshold |
-| `scored_risk_register.csv` | Full risk register with calculated scores and classifications |
-| `kpi_summary.csv` | Latest month KPI values vs targets with on-target status |
-
----
-
-## Data Files
-
-### `data/risk_register.csv`
-15 risks identified across ISO 27001 Annex A domains. Each row contains: risk ID, domain, control reference, asset at risk, threat, vulnerability, likelihood score (1–5), impact score (1–5), calculated risk score, risk level, remediation status, owner, and target remediation date.
-
-### `data/control_assessment.csv`
-15 ISO 27001 Annex A controls assessed for MTN's environment. Each row contains: control ID, domain, control name, Annex A reference, implementation status (Yes/No/Partial), effectiveness rating, gap description, and compliance score (0–100).
-
-### `data/findings.csv`
-10 audit findings raised during the simulated audit. Each finding contains: finding ID, severity (Critical/High/Medium/Low), category, title, full description, affected control reference, detailed recommendation, current remediation status, and due date.
-
-### `data/monitoring_metrics.csv`
-10 months of security KPI data from July 2024 to April 2025. Columns: month, patch compliance %, MFA adoption %, incident MTTR in hours, phishing click rate %, open critical vulnerabilities, security training completion %, access review completion %, and backup success rate %.
+| File | Location | Description |
+|---|---|---|
+| `audit_plan.md` | Audit_Planning/ | Full ISO 27001 audit plan document |
+| `audit_checklist.csv` | Audit_Planning/ | 15-item control audit checklist |
+| `risk_heatmap.png` | Risk_Scoring/ | 5×5 likelihood/impact heatmap |
+| `risk_by_domain.png` | Risk_Scoring/ | Average risk score per domain |
+| `risk_distribution.png` | Risk_Scoring/ | Risk level breakdown |
+| `scored_risk_register.csv` | Risk_Scoring/ | Full risk register with scores |
+| `compliance_radar.png` | Control_Assessment/ | Spider chart — compliance by domain |
+| `implementation_status.png` | Control_Assessment/ | Implemented/Partial/Not Implemented |
+| `compliance_scores.png` | Control_Assessment/ | Per-control compliance bar chart |
+| `gap_analysis_report.csv` | Control_Assessment/ | Controls below 70% target |
+| `findings_by_severity.png` | Findings_Recommendations/ | Critical/High/Medium/Low bar chart |
+| `audit_findings_report.md` | Findings_Recommendations/ | Full structured findings report |
+| `remediation_plan.csv` | Findings_Recommendations/ | Prioritised remediation actions |
+| `kpi_trends.png` | Continuous_Monitoring/ | 6-panel KPI trend dashboard |
+| `vulnerability_trend.png` | Continuous_Monitoring/ | Critical vulnerability count over time |
+| `kpi_summary.csv` | Continuous_Monitoring/ | Latest KPI values vs targets |
+| `mtn_isms_audit_report.html` | reports/ | Self-contained HTML audit report |
 
 ---
 
 ## Bash Scripts Reference
 
 | Script | Command | Purpose |
-|--------|---------|---------|
+|---|---|---|
 | `setup_project.sh` | `bash setup_project.sh` | One-time setup: venv, deps, directory validation |
 | `run_audit.sh` | `bash run_audit.sh` | Run all 5 modules with timestamped log file |
 | `run_audit_planning.sh` | `bash scripts/run_audit_planning.sh` | Audit planning module only |
@@ -371,14 +245,10 @@ Tracks 8 security KPIs over 10 months (July 2024 to April 2025). Produces a 6-pa
 
 ## CI/CD Pipeline
 
-The `.github/workflows/isms_audit.yml` GitHub Actions pipeline runs automatically on:
-
-- Every push to `main`
-- Every pull request targeting `main`
-- Every Monday at 06:00 UTC (scheduled weekly audit)
+The `.github/workflows/isms_audit.yml` pipeline runs automatically on every push to `main`, every pull request targeting `main`, and every Monday at 06:00 UTC.
 
 **Pipeline stages:**
-```
+
 1. Checkout repository
 2. Set up Python 3.11
 3. Install dependencies (pandas, matplotlib, numpy)
@@ -389,44 +259,42 @@ The `.github/workflows/isms_audit.yml` GitHub Actions pipeline runs automaticall
 8. Run Findings Analysis module
 9. Run Continuous Monitoring module
 10. Upload all outputs as GitHub Actions artifacts
-```
 
-This means every commit automatically re-runs the full audit and stores the latest charts and reports as downloadable artifacts in the Actions tab.
+Every commit automatically re-runs the full audit and stores the latest charts and reports as downloadable artifacts in the Actions tab.
 
 ---
 
 ## Audit Scope and Standards
 
 | Standard / Regulation | Coverage |
-|-----------------------|---------|
-| **ISO/IEC 27001:2022** | All Annex A domains: A.5 Organisational, A.6 People, A.7 Physical, A.8 Technological |
-| **ISO/IEC 27002:2022** | 93 controls implementation guidance |
-| **ISO/IEC 27005** | Risk assessment methodology and risk treatment |
-| **ISO 19011:2018** | Audit methodology, planning, and reporting guidelines |
-| **POPIA 2013** | Protection of Personal Information Act — South Africa |
-| **GDPR 2018** | General Data Protection Regulation — EU data subjects |
-| **MTN Group IS Policy** | Internal information security policy baseline v3.1 |
+|---|---|
+| ISO/IEC 27001:2022 | All Annex A domains: A.5 Organisational, A.6 People, A.7 Physical, A.8 Technological |
+| ISO/IEC 27002:2022 | 93 controls implementation guidance |
+| ISO/IEC 27005 | Risk assessment methodology and risk treatment |
+| ISO 19011:2018 | Audit methodology, planning, and reporting guidelines |
+| POPIA 2013 | Protection of Personal Information Act — South Africa |
+| GDPR 2018 | General Data Protection Regulation — EU data subjects |
+| MTN Group IS Policy | Internal information security policy baseline v3.1 |
 
 ---
 
 ## Risk Scoring Methodology
 
-Risk scores follow the internationally recognised formula:
 ```
 Risk Score = Likelihood × Impact
 ```
 
-| Score | Risk Level | Colour | Required Action |
-|-------|-----------|--------|-----------------|
-| 20–25 | **Critical** | Red | Immediate action < 30 days |
-| 12–19 | **High** | Orange | Urgent action < 90 days |
-| 6–11 | **Medium** | Yellow | Planned remediation < 180 days |
-| 1–5 | **Low** | Green | Monitor and review annually |
+| Score | Risk Level | Required Action |
+|---|---|---|
+| 20–25 | Critical | Immediate action < 30 days |
+| 12–19 | High | Urgent action < 90 days |
+| 6–11 | Medium | Planned remediation < 180 days |
+| 1–5 | Low | Monitor and review annually |
 
 **Likelihood Scale**
 
 | Score | Label | Description |
-|-------|-------|-------------|
+|---|---|---|
 | 1 | Rare | May occur only in exceptional circumstances |
 | 2 | Unlikely | Could occur at some time |
 | 3 | Possible | Might occur at some time |
@@ -436,7 +304,7 @@ Risk Score = Likelihood × Impact
 **Impact Scale**
 
 | Score | Label | Description |
-|-------|-------|-------------|
+|---|---|---|
 | 1 | Insignificant | Negligible impact on operations |
 | 2 | Minor | Minor disruption, easily recovered |
 | 3 | Moderate | Some disruption, moderate financial impact |
@@ -448,14 +316,14 @@ Risk Score = Likelihood × Impact
 ## ISMS Maturity Model
 
 | Score Range | Maturity Level | Description |
-|-------------|---------------|-------------|
-| 0–40% | **Initial** | Ad-hoc controls, no formal ISMS documented |
-| 41–60% | **Developing** | Some controls implemented, significant gaps remain |
-| 61–75% | **Managed** | Controls documented and partially effective |
-| 76–90% | **Optimised** | Controls effective, regularly reviewed and improved |
-| 91–100% | **Leading** | Continuous improvement embedded, industry best practice |
+|---|---|---|
+| 0–40% | Initial | Ad-hoc controls, no formal ISMS documented |
+| 41–60% | Developing | Some controls implemented, significant gaps remain |
+| 61–75% | Managed | Controls documented and partially effective |
+| 76–90% | Optimised | Controls effective, regularly reviewed and improved |
+| 91–100% | Leading | Continuous improvement embedded, industry best practice |
 
-> **Current MTN ISMS Maturity: Developing — 57.3% average compliance score**
+**Current MTN ISMS Maturity: Developing — 57.3% average compliance score**
 
 Key improvement areas: Privileged Access Management, Third-Party Risk Assessment, Disaster Recovery Testing, and MFA enforcement across all systems.
 
@@ -464,59 +332,64 @@ Key improvement areas: Privileged Access Management, Third-Party Risk Assessment
 ## Key Findings Summary
 
 | ID | Severity | Title | Status | Due Date |
-|----|----------|-------|--------|----------|
-| F001 | 🔴 Critical | MFA Not Enforced on VPN and Admin Accounts | Open | 2025-05-31 |
-| F002 | 🔴 Critical | No PAM Solution Deployed | Open | 2025-05-31 |
-| F003 | 🟠 High | Patching Delays — 45+ Day Average | In Progress | 2025-06-15 |
-| F004 | 🟠 High | No Third-Party Risk Assessment Process | Open | 2025-09-30 |
-| F005 | 🟠 High | Incident Response Plan Never Tested | Open | 2025-06-30 |
-| F006 | 🟠 High | POPIA Gaps — No DSAR Workflow | In Progress | 2025-05-31 |
-| F007 | 🟠 High | DR Plan Untested for 18+ Months | Open | 2025-10-31 |
-| F008 | 🟡 Medium | Weak Cipher Usage — TLS 1.0/1.1 Active | In Progress | 2025-07-31 |
-| F009 | 🟡 Medium | CCTV Blind Spots in Data Centre | Open | 2025-08-31 |
-| F010 | 🟡 Medium | Security Training Annual Only | Open | 2025-07-31 |
+|---|---|---|---|---|
+| F001 | Critical | MFA Not Enforced on VPN and Admin Accounts | Open | 2025-05-31 |
+| F002 | Critical | No PAM Solution Deployed | Open | 2025-05-31 |
+| F003 | High | Patching Delays — 45+ Day Average | In Progress | 2025-06-15 |
+| F004 | High | No Third-Party Risk Assessment Process | Open | 2025-09-30 |
+| F005 | High | Incident Response Plan Never Tested | Open | 2025-06-30 |
+| F006 | High | POPIA Gaps — No DSAR Workflow | In Progress | 2025-05-31 |
+| F007 | High | DR Plan Untested for 18+ Months | Open | 2025-10-31 |
+| F008 | Medium | Weak Cipher Usage — TLS 1.0/1.1 Active | In Progress | 2025-07-31 |
+| F009 | Medium | CCTV Blind Spots in Data Centre | Open | 2025-08-31 |
+| F010 | Medium | Security Training Annual Only | Open | 2025-07-31 |
 
 ---
 
 ## KPI Monitoring Targets
 
 | KPI | Current (Apr 2025) | Target | Status |
-|-----|-------------------|--------|--------|
-| Patch Compliance | 80% | ≥90% | 🔴 Below |
-| MFA Adoption | 72% | ≥95% | 🔴 Below |
-| Incident MTTR | 40 hours | ≤24 hours | 🔴 Below |
-| Phishing Click Rate | 9% | ≤5% | 🔴 Below |
-| Critical Vulns Open | 23 | ≤10 | 🔴 Below |
-| Training Completion | 83% | ≥95% | 🔴 Below |
-| Access Review Complete | 72% | ≥90% | 🔴 Below |
-| Backup Success Rate | 94% | ≥99% | 🔴 Below |
+|---|---|---|---|
+| Patch Compliance | 80% | ≥90% | Below target |
+| MFA Adoption | 72% | ≥95% | Below target |
+| Incident MTTR | 40 hours | ≤24 hours | Below target |
+| Phishing Click Rate | 9% | ≤5% | Below target |
+| Critical Vulns Open | 23 | ≤10 | Below target |
+| Training Completion | 83% | ≥95% | Below target |
+| Access Review Complete | 72% | ≥90% | Below target |
+| Backup Success Rate | 94% | ≥99% | Below target |
 
-All KPIs are trending in the right direction but none have yet reached target. The tool tracks month-on-month improvement automatically each time new data is added to `monitoring_metrics.csv`.
+All KPIs are trending in the right direction. The tool tracks month-on-month improvement automatically each time new data is added to `monitoring_metrics.csv`.
 
 ---
 
 ## Requirements
+
 ```
 pandas>=1.5.0
 matplotlib>=3.6.0
 numpy>=1.23.0
 ```
 
-- Python 3.8 or higher
-- Tested on Python 3.11 (Windows 11 and Ubuntu 24)
-- No external audit software required
-- No internet connection required to run
+Python 3.8 or higher. Tested on Python 3.11 (Windows 11 and Ubuntu 24). No external audit software or internet connection required.
 
 ---
 
-## Author
+## Related GRC Portfolio Projects
 
-**Scottie222**
-ISO 27001 ISMS Internal Audit Simulation — MTN Group Limited
-Built as a cybersecurity and GRC portfolio demonstration project.
+| Project | Description |
+|---|---|
+| [StandardBank-Risk-Assessment](https://github.com/Scottie222/StandardBank-Risk-Assessment) | ISO 27001 Risk Assessment — Experian SA breach 2020 |
+| [VendorRisk-SA](https://github.com/Scottie222/VendorRisk-SA) | Third-Party Vendor Risk Management Tool |
+| [OpenVantage-ISMS](https://github.com/Scottie222/OpenVantage-ISMS) | Full ISO 27001:2022 ISMS Documentation Suite |
+| [POPIA-GDPR-Compliance-Tracker](https://github.com/Scottie222/POPIA-GDPR-Compliance-Tracker) | Automated POPIA/GDPR compliance scoring |
+| [LifeHealthcare-BCP](https://github.com/Scottie222/LifeHealthcare-BCP) | BCP/DR Tool — Life Healthcare ransomware 2020 |
 
 ---
 
-*All audit data in this repository is simulated for demonstration and portfolio purposes only.*
-*MTN Group Limited is referenced as the audit subject to provide realistic organisational context.*
-*This tool does not represent the actual security posture of MTN Group.*
+*Built by Bakithi Scott Ngcampalala | Junior Security Administrator @ Open Vantage*
+*LinkedIn: https://www.linkedin.com/in/bakithi-scott-ngcampalala-0051a4105*
+
+---
+
+*All audit data in this repository is simulated for demonstration and portfolio purposes only. MTN Group Limited is referenced as the audit subject to provide realistic organisational context. This tool does not represent the actual security posture of MTN Group.*
